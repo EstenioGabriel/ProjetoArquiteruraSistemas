@@ -1,4 +1,4 @@
-package feira.solucao.service;
+package feira.solucao.solucao.repository.service;
 
 import feira.solucao.cupom.ImpressoraCupom;
 import feira.solucao.desconto.CalculadoraDesconto;
@@ -31,7 +31,7 @@ public class FinalizadorPedidoService {
         this.exportadorRelatorio = exportadorRelatorio;
     }
 
-    public void finalizar(Pedido pedido, String desconto, String pagamento, String contato) {
+    public PedidoFinalizado finalizar(Pedido pedido, String desconto, String pagamento, String contato) {
         if (pedido == null || pedido.vazio()) {
             throw new IllegalArgumentException("Pedido vazio ou nulo");
         }
@@ -44,6 +44,7 @@ public class FinalizadorPedidoService {
         impressoraCupom.imprimir(pedido, totalLiquido);
         notificadorPedido.notificarFinalizacao(contato, totalLiquido);
 
-        exportadorRelatorio.exportar(pedido, totalLiquido);
+        String csv = exportadorRelatorio.exportar(pedido, totalLiquido);
+        return new PedidoFinalizado(totalBruto, totalLiquido, csv);
     }
 }
