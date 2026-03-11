@@ -643,7 +643,7 @@ public class FinalizadorPedidoService {
 ### `src/feira/solucao/SolucaoMain.java`
 
 ```java
-package feira.solucao;
+cpackage feira.solucao;
 
 import feira.solucao.cupom.ImpressoraCupom;
 import feira.solucao.cupom.ImpressoraTermica;

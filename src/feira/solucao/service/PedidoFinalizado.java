@@ -1,4 +1,4 @@
-package feira.solucao.solucao.repository.service;
+package feira.solucao.service;
 
 public class PedidoFinalizado {
     private final double totalBruto;
