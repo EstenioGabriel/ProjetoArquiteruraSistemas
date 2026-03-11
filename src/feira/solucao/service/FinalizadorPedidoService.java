@@ -1,4 +1,4 @@
-package feira.solucao.solucao.repository.service;
+package feira.solucao.service;
 
 import feira.solucao.cupom.ImpressoraCupom;
 import feira.solucao.desconto.CalculadoraDesconto;
